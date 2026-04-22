@@ -1,31 +1,73 @@
 <!doctype html>
-<html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
+<html lang="en">
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pokémon Data Catalog | Gen 1" />
+  <title>Snap Engineering Academy Project Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="scripts.js" defer></script>
+</head>
+
+<body>
+  <!-- Landing Section -->
+  <header class="main-header">
+    <div class="landing-overlay">
+      <h1 class="title">Snap Engineering Academy Project Assessment</h1>
+      <p class="intro-text">Project By: ES</p>
+      <p class="intro-text">Thank you for your consideration.</p>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <button onclick="scrollToCatalog()">Go to Catalog</button>
+  </nav>
+
+  <!-- Pokémon Catalog Section -->
+<section id="catalog">
+  <h2>Pokémon Catalog (Gen 1)</h2>
+  <div id="controls">
+    <input type="text" id="search" placeholder="Search Pokémon" oninput="filterPokemons()" />
+    <button onclick="sortPokemons('name')">Sort Alphabetically</button>
+    <button onclick="sortPokemons('dex_id')">Sort By Pokedex ID</button>
+     
+    <!-- Dropdown to sort by Type -->
+    <select id="type-select" onchange="filterByType()">
+      <option value="">Select Type</option>
+      <!-- Options will be populated dynamically -->
+    </select>
+    <button onclick="resetCatalog()">Reset</button>
+  </div>
+
+  <div id="card-container"></div> <!-- Pokémon cards will be rendered here -->
+</section>
+
+<section id="pokemon-details" style="display:none">
+  <h2>Pokémon Details</h2>
+  <div id="pokemon-info"></div> <!-- Full details will be displayed here -->
+  <button onclick="backToCatalog()">Back to Catalog</button>
+</section>
+
+  <!-- Pokémon Card Template -->
+  <template id="pokemon-card-template">
+    <div class="card">
+      <h2></h2> <!-- Pokémon Name -->
+      <img src="" alt="" /> <!-- Pokémon Image -->
+      <ul></ul> <!-- Pokémon Stats -->
     </div>
-  </body>
+  </template>
+
+  <!-- Pokémon cards will be appended here -->
+  <div id="card-container"></div>
+</section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Site by ES</p>
+  </footer>
+
+</body>
+
 </html>
